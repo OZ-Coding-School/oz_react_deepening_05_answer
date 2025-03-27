@@ -9,8 +9,8 @@ const Cart = ({ cart, setCart }) => {
 
     const totalPrice = cart.reduce((acc, cur) => acc + cur.price, 0);
 
-    const totalPriceFormatted = (price) => {
-        return String(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const priceFormatted = (price) => {
+        return price.toLocaleString();
     };
 
     const handlePurchase = () => {
@@ -32,11 +32,11 @@ const Cart = ({ cart, setCart }) => {
                     <div className="cart-item" key={index}>
                         <img src={item.img} alt={item.name} />
                         <span>{item.name}</span>
-                        <span>₩{item.price.toLocaleString()}</span>
+                        <span>₩{priceFormatted(item.price}</span>
                     </div>
                 ))
             )}
-            {totalPrice > 0 && <div className="price-item">합계 금액 : {totalPriceFormatted(totalPrice)} 원</div>}
+            {totalPrice > 0 && <div className="price-item">합계 금액 : {priceFormatted(totalPrice)} 원</div>}
             <button onClick={handlePurchase} disabled={cart.length === 0}>
                 결제하기
             </button>
