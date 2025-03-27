@@ -32,7 +32,7 @@ const Cart = ({ cart, setCart }) => {
                     <div className="cart-item" key={index}>
                         <img src={item.img} alt={item.name} />
                         <span>{item.name}</span>
-                        <span>₩{priceFormatted(item.price}</span>
+                        <span>₩{priceFormatted(item.price)}</span>
                     </div>
                 ))
             )}
